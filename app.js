@@ -12,6 +12,7 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
+hbs.registerPartials('./views/partials')
 
 const app = express();
 
@@ -23,7 +24,7 @@ const projectName = "clever-move-project";
 const capitalized = (string) =>
   string[0].toUpperCase() + string.slice(1).toLowerCase();
 
-app.locals.title = `${capitalized(projectName)} created with Ironlauncher`;
+app.locals.title = `Clever Move`;
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
