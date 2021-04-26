@@ -12,7 +12,7 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-hbs.registerPartials('./views/partials')
+hbs.registerPartials('./views/partials');
 
 const app = express();
 
@@ -25,6 +25,20 @@ const capitalized = (string) =>
   string[0].toUpperCase() + string.slice(1).toLowerCase();
 
 app.locals.title = `Clever Move`;
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
+app.use(session({
+    secret: process.env.SESSION_KEY,
+    cookie:{
+        maxAge: 24 * 60 * 60 * 1000 // in milliseconds
+    },
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/lab-express-basic-auth',
+        ttl: 24 * 60 * 60 * 1000//1day => seconds
+    })
+}));
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
