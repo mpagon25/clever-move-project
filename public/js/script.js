@@ -7,6 +7,6 @@ document.addEventListener(
 );
 
 
-$(function () {
-  $('[data-toggle="popover"]').popover()
-});
+// $(function () {
+//   $('[data-toggle="popover"]').popover()
+// });
