@@ -2,7 +2,7 @@ const {Schema, model} = require('mongoose');
 
 const AddressSchema = new Schema ({
     street: String,
-    houseNumber: Number,
+    houseNum: Number,
     zipCode: Number,
     city: String,
 });
