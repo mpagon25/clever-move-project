@@ -22,6 +22,14 @@ html, body{
  
 
 /*---Media Queries --*/
+@media (min-width: 992px) { 
+    body {
+        width: 65%;
+        margin: auto;
+    }
+}
+
+
 @media (max-width: 992px) {
 
 }
@@ -39,7 +47,6 @@ html, body{
      }
  
 }
-
 
 
 .shadow:before,
