@@ -22,16 +22,18 @@ html, body{
 }
 
 .nav-link {
-    font-size: 1.25em;
+    font-size: 1.1em;
 }
- 
 
 /*---Media Queries --*/
 @media (min-width: 992px) { 
 
-    body {
-        width: 65%;
+    .content-hamburger {
+        width: 70%;
         margin: auto;
+    }
+    .navbar .container-fluid{
+        width:70%;
     }
     
 }
@@ -41,17 +43,11 @@ html, body{
 
 }
 @media (max-width: 768px) {
-    .fa-user{
-        position: relative;
-        left: 200px;
-     }
+  
 }
   
 @media (max-width: 576px) {
-    .fa-user{
-        position: relative;
-        left: 100px;
-     }
+  
  
 }
 
