@@ -23,10 +23,12 @@ html, body{
 
 /*---Media Queries --*/
 @media (min-width: 992px) { 
+
     body {
         width: 65%;
         margin: auto;
     }
+    
 }
 
 
