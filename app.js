@@ -35,7 +35,7 @@ app.use(session({
         maxAge: 24 * 60 * 60 * 1000 // in milliseconds
     },
     store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/lab-express-basic-auth',
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/clever-move-project',
         ttl: 24 * 60 * 60 * 1000//1day => seconds
     })
 }));
