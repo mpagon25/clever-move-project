@@ -13,6 +13,7 @@ const scheduleSchema= new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Address'
         },
+        date: Date,
         description: String
     })
 
