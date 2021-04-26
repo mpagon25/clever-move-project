@@ -1,34 +1,27 @@
-<!-- Button trigger modal -->
-<ul class="nav navbar-nav navbar-right">
-        <a data-bs-toggle="modal" data-bs-target="#loginModal"><span><i class="fas fa-user"></i></span></a>
-</ul>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-whatever="@mdo"><i class="fas fa-user"></i></button>
 
-<!-- Modal -->
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content mx-auto">
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalCenterTitle">Login</h4>
-        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body d-flex justify-content-center">
-          <form action="/login" method="POST">
-              <div>
-                    <label for="email">Email:</label><br>
-                    <input type="email" name="email" name="email" placeholder="example@test.com">
-              </div>
-              <br>
-              <div>
-                    <label for="password">Password:</label><br>
-                    <input type="password" name="password" name="password" placeholder="Password">
-              </div>
-              <br>
-              <div class="d-flex justify-content-center">
+        <form action="/login" method="POST">
+          <div class="mb-3">
+           <label for="email" class="col-form-label">Email:</label><br>
+           <input type="email"  class="form-control" id="email" name="email" placeholder="example@test.com">
+          </div>
+          <div class="mb-3">
+              <label for="password" class="col-form-label">Password:</label><br>
+           <input type="password"  class="form-control" id="password" name="password" placeholder="Password">
+     
+          </div>
+          <div class="d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary">Login</button>
-              </div>                 
-          </form>         
+              </div>   
+        </form>
       </div>
       <div class="modal-footer d-flex justify-content-center flex-column">
           <div>
@@ -40,7 +33,7 @@
         </form>
             
    
-      </div>     
+      </div>   
     </div>
   </div>
 </div>

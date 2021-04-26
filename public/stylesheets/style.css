@@ -16,8 +16,13 @@ html, body{
     padding-right:.7rem;
 }
 
-.navbar-right> a {
+.navbar-right > a {
+    
     color: gray;
+}
+
+.nav-link {
+    font-size: 1.25em;
 }
  
 
