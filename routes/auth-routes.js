@@ -40,7 +40,7 @@ authRouter.get('/signup',(req,res,next)=>{
  
 
 authRouter.post('/signup',(req,res,next)=>{
-    const {email, password, confirmPW, street, houseNum, zipCode, city} = req.body;
+    const {email, password, confirmPW,firstname, lastname, street, houseNum, zipCode, city} = req.body;
 
     const address = {street, houseNum, zipCode, city};
 
@@ -71,7 +71,7 @@ authRouter.post('/signup',(req,res,next)=>{
 
     AddressModel.create(address)
         .then((newAddress)=>{
-            return User.create({email, password: hash, address: newAddress._id});                
+            return User.create({email, password: hash,firstname, lastname, address: newAddress._id});                
         })
         .then((newUser)=>{
             console.log('>>> Created User: ' + newUser._id);

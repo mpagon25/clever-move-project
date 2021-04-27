@@ -9,6 +9,8 @@ const UserSchema = new Schema({
     // unique: true -> Ideally, should be unique, but its up to you
   },
   password: String,
+  firstname: String,
+  lastname: String,
   address: {
       type: Schema.Types.ObjectId,
       ref: 'Address'
