@@ -28,6 +28,10 @@ html, body{
     border-radius: 40px;
  }
 
+ #usericon {
+    position: absolute;
+    top:24px;
+ }
 
 /*---Media Queries --*/
 @media (min-width: 992px) { 
@@ -45,7 +49,14 @@ html, body{
        font-size:2em;
        border-radius: 40px;
     }
-    
+  
+   
+}
+
+@media (min-width: 576px) {
+    #usericon {
+        left:95%;
+   }
 }
 
 
@@ -53,11 +64,14 @@ html, body{
 
 }
 @media (max-width: 768px) {
-  
+ 
 }
   
 @media (max-width: 576px) {
-  
+
+    #usericon {
+        left:95%;
+   }
  
 }
 
