@@ -12,7 +12,7 @@ const express = require("express");
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-hbs.registerPartials('./views/partials')
+hbs.registerPartials('./views/partials');
 
 const app = express();
 
@@ -26,9 +26,29 @@ const capitalized = (string) =>
 
 app.locals.title = `Clever Move`;
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+
+app.use(session({
+    secret: process.env.SESSION_KEY,
+    cookie:{
+        maxAge: 24 * 60 * 60 * 1000 // in milliseconds
+    },
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/clever-move-project',
+        ttl: 24 * 60 * 60 * 1000//1day => seconds
+    })
+}));
+
 // 👇 Start handling routes here
 const index = require("./routes/index");
 app.use("/", index);
+
+const authRoutes = require('./routes/auth-routes');
+app.use('/', authRoutes);
+
+const scheduleRoutes = require('./routes/schedule-routes');
+app.use('/', scheduleRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

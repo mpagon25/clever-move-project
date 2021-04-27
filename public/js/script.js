@@ -5,3 +5,8 @@ document.addEventListener(
   },
   false
 );
+
+
+// $(function () {
+//   $('[data-toggle="popover"]').popover()
+// });

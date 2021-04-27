@@ -1,6 +1,121 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
 
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+html, body{
+    height: 100%;
+    width: 100%;
+    color:#222;
+    font-family: "Poppins", sans-serif;
 }
+
+.navbar{
+    padding:1.2rem;
+}
+
+.navbar-nav li{
+    padding-right:.7rem;
+}
+
+.navbar-right > a {
+    
+    color: gray;
+}
+
+.nav-link {
+    font-size: 1.1em;
+}
+
+/*---Media Queries --*/
+@media (min-width: 992px) { 
+
+    .content-hamburger {
+        width: 70%;
+        margin: auto;
+    }
+    .navbar .container-fluid{
+        width:70%;
+    }
+    
+}
+
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+  
+}
+  
+@media (max-width: 576px) {
+  
+ 
+}
+
+
+.shadow:before,
+.shadow:after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    background: linear-gradient(45deg, #00d5fb, #a4bddd, #a3e0f0, #00d5fb, #19447c71, #2f8094);
+    background-size: 400%;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    z-index: -1;
+    animation: animate 10s linear infinite;
+}
+
+.shadow:after {
+    filter: blur(7px);
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 300% 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
 
 

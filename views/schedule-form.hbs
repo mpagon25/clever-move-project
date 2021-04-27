@@ -1,0 +1,89 @@
+<div class="d-flex justify-content-center pt-4">
+    <div class="row col-sm-10 col-md-8 col-lg-6 ">
+        <form>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="fname" class="control-label">First Name</label>
+                        <input type="text" class="form-control" name="fname" id="fname" placeholder="firstname">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="lname" class="control-label">Last Name</label>
+                        <input type="text" class="form-control" name="lname" id="lname" placeholder="lastname">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <label class="form-label "> From :</label>
+                <div class="col-md-8">
+
+                    <div class="form-group">
+
+                        <label for="street1" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="street1" placeholder="street">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="zipcode1" class="form-label">Zip code</label>
+                        <input type="text" class="form-control" id="zipcode1" placeholder="zip code">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="city1" class="form-label">City</label>
+                <input type="Text" class="form-control" id="city1" placeholder="city">
+            </div>
+
+            {{!-- New home address --}}
+            <div class="row">
+                <label class="form-label "> To :</label>
+                <div class="col-md-8">
+
+                    <div class="form-group">
+
+                        <label for="street2" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="street2" placeholder="street">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="zipcode2" class="form-label">Zip code</label>
+                        <input type="text" class="form-control" id="zipcode2" placeholder="zip code">
+                    </div>
+                </div>
+            </div>
+        
+             <div class="mb-3">
+                <label for="city1" class="form-label">City</label>
+                <input type="Text" class="form-control" id="city1" placeholder="city">
+            </div>
+            {{!-- New home address ends here --}} 
+
+            <div class="form-group mb-3">
+                <label for="datetime" class="form-label">Move date</label>
+                <div class='input-group date' id='datetime'>
+                    <input type='datetime-local' class="form-control" name="datetime" />
+                  
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Request description :</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+           
+
+            <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1"> <small><a href="#">Terms & conditions.</a></small>
+                </label>
+            </div>
+            <div class="form-group ">
+              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
