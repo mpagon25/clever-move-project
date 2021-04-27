@@ -3,13 +3,13 @@
         <form>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="fname" class="control-label">First Name</label>
                         <input type="text" class="form-control" name="fname" id="fname" placeholder="firstname">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group mb-3">
                         <label for="lname" class="control-label">Last Name</label>
                         <input type="text" class="form-control" name="lname" id="lname" placeholder="lastname">
                     </div>
@@ -28,7 +28,7 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="zipcode1" class="form-label">Zip code</label>
-                        <input type="number" class="form-control" id="zipcode1" placeholder="zip code">
+                        <input type="text" class="form-control" id="zipcode1" placeholder="zip code">
                     </div>
                 </div>
             </div>
@@ -52,14 +52,18 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="zipcode2" class="form-label">Zip code</label>
-                        <input type="number" class="form-control" id="zipcode2" placeholder="zip code">
+                        <input type="text" class="form-control" id="zipcode2" placeholder="zip code">
                     </div>
                 </div>
             </div>
-            {{!-- New home address ends here --}}
+        
+             <div class="mb-3">
+                <label for="city1" class="form-label">City</label>
+                <input type="Text" class="form-control" id="city1" placeholder="city">
+            </div>
+            {{!-- New home address ends here --}} 
 
             <div class="form-group mb-3">
-
                 <label for="datetime" class="form-label">Move date</label>
                 <div class='input-group date' id='datetime'>
                     <input type='datetime-local' class="form-control" name="datetime" />
@@ -77,7 +81,9 @@
                 <label class="form-check-label" for="exampleCheck1"> <small><a href="#">Terms & conditions.</a></small>
                 </label>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <div class="form-group ">
+              <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            </div>
         </form>
     </div>
 </div>
