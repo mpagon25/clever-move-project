@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="row">
-                <label class="form-label "> From :</label>
+               <small class ="warning text-muted">(You can only update your current address in your user settings)</small> <label class="form-label "> From :</label> 
                 <div class="col-md-8">
 
                     <div class="form-group">
@@ -96,14 +96,14 @@
                 </div>
           
             {{!-- New home address ends here --}}
-
+<small class ="warning text-muted">(Please enter the date again)</small>
             <div class="form-group mb-3">
                 <label for="datetime" class="form-label">Move date</label>
                 <div class='input-group date' id='datetime'>
-                    <input type='datetime-local' class="form-control" name="date" value="{{schedule.date}}"/>
+                    <input type='datetime-local' class="form-control" name="date" placeholder="{{schedule.date}}"/>
               
                 </div>
-                testing:{{schedule.date}}
+  
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Request description :</label>
