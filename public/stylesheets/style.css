@@ -33,6 +33,8 @@ html, body{
     top:24px;
  }
 
+
+
 /*---Media Queries --*/
 @media (min-width: 992px) { 
 
@@ -120,6 +122,9 @@ html, body{
     padding: 1rem;
 }
 
+#logo {
+    padding: 0;
+}
 
 
 
