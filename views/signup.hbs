@@ -1,36 +1,46 @@
 <div class="container d-flex justify-content-center flow-column">
-    
+    {{#if msg}}
+        <div class="error">{{msg}}</div>
+    {{/if}}
     <form class="w-50" action="/signup" method="POST" >
         <br>
         <h4>Sign Up</h4><br>
         <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" name="email" placeholder="Enter email">
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" placeholder="Password">
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="confirmPW">Confirm Password</label>
             <input type="password" class="form-control" name="confirmPW" placeholder="Confirm Password">
-        </div>
+        </div><br>
+        <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="firstname" class="form-control" name="firstname" placeholder="Firstname">
+        </div><br>
+        <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <input type="lastname" class="form-control" name="lastname" placeholder="Lastname">
+        </div><br>
         <div class="form-group">
             <label for="street">Street</label>
             <input type="text" class="form-control" name="street" placeholder="Street">
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="houseNum">House Number</label>
             <input type="number" class="form-control error" name="houseNum" placeholder="House Number">
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="zipCode">Zip Code</label>
             <input type="number" class="form-control" name="zipCode" placeholder="Zip Code">
-        </div>
+        </div><br>
         <div class="form-group">
             <label for="city">City</label>
             <input type="text" class="form-control" name="city" placeholder="City">
-        </div>
+        </div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 

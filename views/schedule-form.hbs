@@ -1,17 +1,17 @@
 <div class="d-flex justify-content-center pt-4">
     <div class="row col-sm-10 col-md-8 col-lg-6 ">
-        <form>
+        <form action="/schedule" method="POST">
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label for="fname" class="control-label">First Name</label>
-                        <input type="text" class="form-control" name="fname" id="fname" placeholder="firstname">
+                        <label for="firstname" class="control-label">Firstname</label>
+                        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Firstname">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
-                        <label for="lname" class="control-label">Last Name</label>
-                        <input type="text" class="form-control" name="lname" id="lname" placeholder="lastname">
+                        <label for="lastname" class="control-label">Lastname</label>
+                        <input type="text" class="form-control" name="lastname" id="lastname" placeholder="lastname">
                     </div>
                 </div>
             </div>
@@ -21,21 +21,21 @@
 
                     <div class="form-group">
 
-                        <label for="street1" class="form-label">Street</label>
-                        <input type="text" class="form-control" id="street1" placeholder="street">
+                        <label for="street" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="street" placeholder="Street">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="zipcode1" class="form-label">Zip code</label>
-                        <input type="text" class="form-control" id="zipcode1" placeholder="zip code">
+                        <label for="zipCode" class="form-label">Zip Code</label>
+                        <input type="text" class="form-control" id="zipCode" placeholder="Zip Code">
                     </div>
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="city1" class="form-label">City</label>
-                <input type="Text" class="form-control" id="city1" placeholder="city">
+                <label for="city" class="form-label">City</label>
+                <input type="Text" class="form-control" id="city" placeholder="City">
             </div>
 
             {{!-- New home address --}}
@@ -45,21 +45,21 @@
 
                     <div class="form-group">
 
-                        <label for="street2" class="form-label">Street</label>
-                        <input type="text" class="form-control" id="street2" placeholder="street">
+                        <label for="streetTo" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="streetTo" placeholder="Street">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="zipcode2" class="form-label">Zip code</label>
-                        <input type="text" class="form-control" id="zipcode2" placeholder="zip code">
+                        <label for="zipCodeTo" class="form-label">Zip Code</label>
+                        <input type="text" class="form-control" id="zipCodeTo" placeholder="Zip Code">
                     </div>
                 </div>
             </div>
         
              <div class="mb-3">
-                <label for="city1" class="form-label">City</label>
-                <input type="Text" class="form-control" id="city1" placeholder="city">
+                <label for="cityTo" class="form-label">City</label>
+                <input type="Text" class="form-control" id="cityTo" placeholder="City">
             </div>
             {{!-- New home address ends here --}} 
 

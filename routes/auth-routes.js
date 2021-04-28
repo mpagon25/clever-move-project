@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const authRouter = require('express').Router();
 
 authRouter.post('/login',(req, res, next)=>{
+    
     User.findOne({email: req.body.email})
         .then((user)=>{
             if(user){
@@ -40,27 +41,27 @@ authRouter.get('/signup',(req,res,next)=>{
  
 
 authRouter.post('/signup',(req,res,next)=>{
-    const {email, password, confirmPW, street, houseNum, zipCode, city} = req.body;
+    const {email, password, confirmPW, firstname, lastname, street, houseNum, zipCode, city} = req.body;
 
     const address = {street, houseNum, zipCode, city};
 
 
-    if(!email || !password || !confirmPW || !street || !houseNum || !zipCode || !city){
-        res.render("signup");
+    if(!email || !password || !confirmPW || !firstname || !lastname || !street || !houseNum || !zipCode || !city){
+        res.render("signup", {msg: 'Fill up every input field'});
         return;
     }
 
     const re = /^[^@ ]+@[^@ ]+\.[^@ ]+$/;
 
     if (!re.test(String(email).toLowerCase())) {
-        res.render("signup");
+        res.render("signup", {msg: 'Enter a valid email address.'});
         return;
     }
 
     const pwRe = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if (!pwRe.test(password)) {
-        res.render("signup");
+        res.render("signup", {msg: 'Enter a valid password.'});
         return;
     }
     const salt = bcrypt.genSaltSync(12);
@@ -71,7 +72,7 @@ authRouter.post('/signup',(req,res,next)=>{
 
     AddressModel.create(address)
         .then((newAddress)=>{
-            return User.create({email, password: hash, address: newAddress._id});                
+            return User.create({email, password: hash, firstname, lastname, address: newAddress._id, role: 'user'});                
         })
         .then((newUser)=>{
             console.log('>>> Created User: ' + newUser._id);
