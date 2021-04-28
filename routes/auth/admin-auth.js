@@ -1,12 +1,10 @@
-const adminDashAuth = (req,res,next) => {
-
-    if(req.session.userInfo.role != 'admin'){
-        res.redirect('/');
+const adminDashAuth = (req, res, next) => {
+    if (req.session.userInfo.role != "admin") {
+        res.redirect("/");
         return;
-    }else{
+    } else {
         next();
-    }    
+    }
 };
-
 
 module.exports = { adminDashAuth };
