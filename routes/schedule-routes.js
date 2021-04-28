@@ -34,7 +34,7 @@ scheduleRouter.post('/schedule',(req, res, next)=>{
 
 })
 
-//EDIT SCHEDULE Route
+// SCHEDULE DETAILS Route
 scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
  const{id} = req.params
 
@@ -58,6 +58,11 @@ scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
      });
 
 }) 
+
+// EDIT SCHEDULE
+scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
+  
+})
 
 
 
