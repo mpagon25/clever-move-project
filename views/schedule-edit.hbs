@@ -1,29 +1,61 @@
 <div class="d-flex justify-content-center pt-4">
     <div class="row col-sm-10 col-md-8 col-lg-6 ">
-        <form action="'/schedule/:id/edit" method="POST">
-    
+        <form action="/schedule" method="POST">
             <div class="row">
-                <label class="form-label "> From :</label>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="firstname" class="control-label">Firstname</label>
+                        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="firstname"
+                            value="{{user.firstname}}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label for="firstname" class="control-label">Last Name</label>
+                        <input type="text" class="form-control" name="firstname" id="firstname" placeholder="lastname"
+                            value="{{user.lastname}}">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+               <small class ="warning text-muted">(You can only update your current address in your user settings)</small> <label class="form-label "> From :</label> 
                 <div class="col-md-8">
 
                     <div class="form-group">
-
                         <label for="street1" class="form-label">Street</label>
-                        <input type="text" class="form-control" id="street1" placeholder="street">
+                        <input type="text" class="form-control" id="street1" placeholder="street"
+                            value="{{user.address.street}}">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="zipcode1" class="form-label">Zip code</label>
-                        <input type="text" class="form-control" id="zipcode1" placeholder="zip code">
+                        <label for="houseNum" class="form-label">House No.</label>
+                        <input type="text" class="form-control" id="houseNum" placeholder="House No."
+                            value="{{user.address.houseNum}}">
                     </div>
                 </div>
             </div>
+                <div class="row">
 
-            <div class="mb-3">
-                <label for="city1" class="form-label">City</label>
-                <input type="Text" class="form-control" id="city1" placeholder="city">
-            </div>
+                    <div class="mb-3 col-md-8">
+                        <div class="form-group ">  
+                         <label for="city1" class="form-label">City</label>
+                        <input type="Text" class="form-control" id="city1" placeholder="city"
+                            value="{{user.address.city}}">
+                        </div>
+                     
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="zipcode1" class="form-label">zip code</label>
+                            <input type="text" class="form-control" id="zipcode1" placeholder="zip code"
+                                value="{{user.address.zipCode}}">
+                        </div>
+                    </div>
+                </div>
+          
+
+
 
             {{!-- New home address --}}
             <div class="row">
@@ -31,45 +63,62 @@
                 <div class="col-md-8">
 
                     <div class="form-group">
-
-                        <label for="street2" class="form-label">Street</label>
-                        <input type="text" class="form-control" id="street2" placeholder="street" name="street2">
+                        <label for="street" class="form-label">Street</label>
+                        <input type="text" class="form-control" id="street" placeholder="street" name="street"
+                         value="{{schedule.addressTo.street}}"  >
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
-                        <label for="zipcode2" class="form-label">Zip code</label>
-                        <input type="text" class="form-control" id="zipcode2" placeholder="zip code" name="zipcode2">
+                        <label for="houseNum" class="form-label">House No.</label>
+                        <input type="text" class="form-control" id="zipcode1" placeholder="House No." name="houseNum"
+                         value="{{schedule.addressTo.houseNum}}" >
                     </div>
                 </div>
             </div>
-        
-             <div class="mb-3">
-                <label for="city1" class="form-label">City</label>
-                <input type="Text" class="form-control" id="city1" placeholder="city">
-            </div>
-            {{!-- New home address ends here --}} 
+                <div class="row">
+
+                    <div class="mb-3 col-md-8">
+                        <div class="form-group ">  
+                         <label for="city" class="form-label">City</label>
+                        <input type="Text" class="form-control" id="city" placeholder="city" name="city"
+                         value="{{schedule.addressTo.city}}">
+                        </div>
+                     
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="zipcode" class="form-label">zip code</label>
+                            <input type="text" class="form-control" id="zipcode" placeholder="zip code" name="zipCode"
+                             value="{{schedule.addressTo.zipCode}}" >
+                        </div>
+                    </div>
+                </div>
+          
+            {{!-- New home address ends here --}}
 
             <div class="form-group mb-3">
                 <label for="datetime" class="form-label">Move date</label>
                 <div class='input-group date' id='datetime'>
-                    <input type='datetime-local' class="form-control" name="datetime" />
-                  
+                    <input type='datetime-local' class="form-control" name="date" placeholder="{{schedule.date}}"/>
+              
                 </div>
+  
             </div>
             <div class="mb-3">
-                <label for="description" class="form-label" >Request description :</label>
-                <textarea class="form-control" id="description" rows="3" name="description"></textarea>
+                <label for="description" class="form-label">Request description :</label>
+                <textarea class="form-control" id="description" rows="3" name="description">{{schedule.description}}</textarea>
             </div>
-           
+
 
             <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1"> <small><a href="#">Terms & conditions.</a></small>
                 </label>
             </div>
-            <div class="form-group ">  
-                     <button type="submit" id="schedule" class="btn btn-primary btn-lg">Confirm</button>
+            <div class="form-group ">
+
+                <button type="submit" id="schedule" class="btn btn-primary btn-lg">confirm</button>
 
             </div>
         </form>
