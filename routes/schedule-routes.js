@@ -1,4 +1,5 @@
 const AddressModel = require("../models/Address.model");
+const UserModel = require("../models/User.model");
 const Schedule = require("../models/Schedule.model");
 const scheduleRouter = require("express").Router();
 
@@ -20,14 +21,10 @@ scheduleRouter.post('/schedule',(req, res, next)=>{
 
       .then((address)=>{
 
-        console.log(address)
-
         Schedule.create({ user: req.session.userInfo._id, addressTo : address._id, date, description})
         .then((schedule) => {
 
-          console.log("SCHEDULE CREATED",{ schedule })
-
-          res.redirect('/schedule/details')
+          res.redirect(`/schedule/details/${schedule._id}`)
       
         })
         .catch((err)=>{
@@ -38,14 +35,31 @@ scheduleRouter.post('/schedule',(req, res, next)=>{
 })
 
 //EDIT SCHEDULE Route
-scheduleRouter.get('/schedule/details', (req, res, next)=>{
-   Schedule.find()
-   .then((schedule) => {
-      res.render('scheduleDetails', {schedule})
-   }).catch((err) => {
-     next(err)
-   });
+scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
+ const{id} = req.params
+
+     Schedule.findById(id)
+     .populate("user")
+     .populate("addressTo")
+
+     .then((schedule) => {
+
+          UserModel.findById(schedule.user._id)
+          .populate("address")
+          
+          .then((user)=>{
+      
+            res.render('scheduleDetails', {schedule , user})
+          })
+        
+
+     }).catch((err) => {
+       next(err)
+     });
+
 }) 
+
+
 
 
 
