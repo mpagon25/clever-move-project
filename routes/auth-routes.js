@@ -72,11 +72,7 @@ authRouter.post('/signup',(req,res,next)=>{
 
     AddressModel.create(address)
         .then((newAddress)=>{
-<<<<<<< HEAD
             return User.create({email, password: hash, firstname, lastname, address: newAddress._id, role: 'user'});                
-=======
-            return User.create({email, password: hash,firstname, lastname, address: newAddress._id});                
->>>>>>> 049c55787f8da38f63ef159cbe3de076a3ad15bf
         })
         .then((newUser)=>{
             console.log('>>> Created User: ' + newUser._id);
