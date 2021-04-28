@@ -6,8 +6,7 @@ adminRoutes.get("/admin-dashboard", adminDashAuth, (req, res, next) => {
     Schedule.find()
         .populate('user')
         .populate('addressTo')
-        .then((schedules)=>{
-            console.log()            
+        .then((schedules)=>{           
             res.render("auth/admin-dashboard", {user: req.session.userInfo, schedules});
         })
         .catch((err)=>{
