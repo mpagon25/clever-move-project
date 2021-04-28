@@ -16,15 +16,19 @@ adminRoutes.get("/admin-dashboard", adminDashAuth, (req, res, next) => {
                         users.forEach((user)=>{
                             if(schedule.user._id == user.id){
                                                              
+                                // console.log({addressNew: user.address})
+                                schedule.user.address = user.address;
+                                popSchedules.push(schedule);
                                 
                             }
 
                         });
                         
                                    
-                    });                   
+                    });
                     
-                    res.render("auth/admin-dashboard", {user: req.session.userInfo, schedules});
+                    
+                    res.render("auth/admin-dashboard", {user: req.session.userInfo, popSchedules});
                 });          
             
         })
