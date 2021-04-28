@@ -20,7 +20,7 @@ scheduleRouter.post('/schedule',(req, res, next)=>{
   AddressModel.create({  street, houseNum, zipCode ,city })
 
       .then((address)=>{
-
+  
         Schedule.create({ user: req.session.userInfo._id, addressTo : address._id, date, description})
         .then((schedule) => {
 
@@ -63,19 +63,16 @@ scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
 //GET EDIT
 scheduleRouter.get('/schedule/edit/:id', (req, res, next)=>{
   const{id} = req.params
-  const { } = req.body
+
       Schedule.findById(id )
       .populate("user")
       .populate("addressTo")
  
       .then((schedule) => {
-        console.log(schedule)
            UserModel.findById(schedule.user._id)
            .populate("address")
-           
-           .then((user)=>{
-            console.log(user)
-             res.render('schedule-edit.hbs', {schedule , user})
+            .then((user)=>{
+                res.render('schedule-edit.hbs', {schedule , user})
            })
 
       }).catch((err) => {
@@ -86,30 +83,37 @@ scheduleRouter.get('/schedule/edit/:id', (req, res, next)=>{
 
 
 
-// // EDIT SCHEDULE
-// scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
+// EDIT SCHEDULE
+scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
+  const{id} = req.params
+ const{ streetTo, houseNumTo, zipCodeTo ,cityTo , date, description} = req.body
+ console.log("test")
+ console.log(streetTo, houseNumTo, zipCodeTo ,cityTo)
 
-//     const { id } = req.params
- 
-//     Schedule.findByIdAndUpdate(id, { date, description} )
-//     .populate("addressTo")
+    Schedule.findByIdAndUpdate(id, { date, description}, {new:true} )
 
-//     .then((schedule) => {
+    .then((schedule) => {
 
-//       AddressModel.findByIdAndUpdate(addressTo._id, {street, houseNum, zipCode ,city })
+      AddressModel.findByIdAndUpdate(schedule.addressTo, {streetTo, houseNumTo, zipCodeTo ,cityTo},{new:true})
   
-//          .then((schedule)=>{
-//        console.log(schedule)
-//            res.redirect('schedule-edit.hbs', {schedule })
-//          })
+         .then(()=>{
+      
+            //  res.redirect(`/schedule/details/${id}`)
+
+             res.redirect(`/schedule/booked`)
+
+         })
        
 
-//     }).catch((err) => {
-//       next(err)
-//     });
+    }).catch((err) => {
+      next(err)
+    });
 
-// })
+})
 
+scheduleRouter.get('/schedule/booked', (req, res, next)=>{
+  res.render("schedule-booked")
+})
 
 
 
