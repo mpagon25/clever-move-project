@@ -47,6 +47,12 @@ app.use("/", index);
 const authRoutes = require('./routes/auth-routes');
 app.use('/', authRoutes);
 
+const adminRoutes = require('./routes/admin-routes');
+app.use('/', adminRoutes);
+
+const userRoutes = require('./routes/user-routes');
+app.use('/', userRoutes);
+
 const scheduleRoutes = require('./routes/schedule-routes');
 app.use('/', scheduleRoutes);
 

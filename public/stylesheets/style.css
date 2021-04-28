@@ -24,6 +24,14 @@ html, body{
 .nav-link {
     font-size: 1.1em;
 }
+#scheduleButton{
+    border-radius: 40px;
+ }
+
+ #usericon {
+    position: absolute;
+    top:24px;
+ }
 
 /*---Media Queries --*/
 @media (min-width: 992px) { 
@@ -35,7 +43,20 @@ html, body{
     .navbar .container-fluid{
         width:70%;
     }
-    
+    #scheduleButton{
+       width:30%;
+       height:80px;
+       font-size:2em;
+       border-radius: 40px;
+    }
+  
+   
+}
+
+@media (min-width: 577px) {
+    #usericon {
+        left:96.5%;
+   }
 }
 
 
@@ -43,11 +64,14 @@ html, body{
 
 }
 @media (max-width: 768px) {
-  
+ 
 }
   
 @media (max-width: 576px) {
-  
+
+    #usericon {
+        left:95%;
+   }
  
 }
 
