@@ -1,7 +1,5 @@
 <h1>schedule created</h1>
 
-{{#each schedule}}
-
     <div class="col-sm-10 col-md-6">
    <div class="card text-center">
   <div class="card-header">
@@ -9,9 +7,19 @@
   </div>
   <div class="card-body">
     <h5 class="card-title">Please check the details before confirming</h5>
-    <p class="card-text">Move date: {{this.date}}</p>
+    <p class="card-text">Move date: {{schedule.date}}</p>
+
+    <p> <b>Moving From:</b> </p>
+    <p class="card-text">Street: {{user.address.street}}</p>
+    <p class="card-text">House No. : {{user.address.houseNum}}</p>
+    <p class="card-text">Zip code: {{user.address.zipCode}}</p>
+
+    <p> <b>Moving To:</b> </p>
+    <p class="card-text">Street: {{schedule.addressTo.street}}</p>
+    <p class="card-text">House No.: {{schedule.addressTo.houseNum}}</p>
+    <p class="card-text">Zip code: {{schedule.addressTo.zipCode}}</p>
    
-    <p class="card-text">Description: {{this.description}}</p>
+    <p class="card-text">Description: {{schedule.description}}</p>
     <a href="#" class="btn btn-info">Edit</a>
     <a href="#" class="btn btn-primary">confirm</a>
   </div>
@@ -21,4 +29,3 @@
 </div>
     </div>
 
-{{/each}}
