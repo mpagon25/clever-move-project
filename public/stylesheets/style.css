@@ -120,6 +120,9 @@ html, body{
     padding: 1rem;
 }
 
+#logo {
+    padding: 0;
+}
 
 
 
