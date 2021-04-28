@@ -9,4 +9,8 @@ userRoutes.get('/profile-page',userAuth,(req,res,next)=>{
 
 });
 
+userRoutes.get('/profile-page/settings'),(req,res,next)=>{    
+    res.render('/auth/user-profilepage');
+};
+
 module.exports = userRoutes;
