@@ -65,7 +65,9 @@ html, body{
     border-width: 3px;
   
 }
-
+.navbar-light .navbar-toggler{
+    color: white;
+}
 
 
 /*---Media Queries --*/
