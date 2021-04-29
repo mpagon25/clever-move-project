@@ -21,7 +21,7 @@ scheduleRouter.post('/schedule',(req, res, next)=>{
 
       .then((address)=>{
   
-        Schedule.create({ user: req.session.userInfo._id, addressTo : address._id, date, description})
+        Schedule.create({ user: req.session.userInfo._id, addressTo : address._id, date, description, status: 'pending'})
         .then((schedule) => {
 
           res.redirect(`/schedule/details/${schedule._id}`)
@@ -36,8 +36,8 @@ scheduleRouter.post('/schedule',(req, res, next)=>{
 
 // SCHEDULE DETAILS Route
 scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
- const{id} = req.params
- const { } = req.body
+ const{id} = req.params;
+ const { } = req.body;
      Schedule.findById(id )
      .populate("user")
      .populate("addressTo")
