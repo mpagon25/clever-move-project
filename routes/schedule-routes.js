@@ -3,7 +3,7 @@ const UserModel = require("../models/User.model");
 const Schedule = require("../models/Schedule.model");
 const scheduleRouter = require("express").Router();
 
-
+//RENDER SCHEDULE PAGE
 scheduleRouter.get('/schedule',(req, res, next)=>{
 
   AddressModel.findById(req.session.userInfo.address)
@@ -112,6 +112,7 @@ scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
 
 })
 
+//RENDER BOOKED PAGE
 scheduleRouter.get('/schedule/booked', (req, res, next)=>{
   res.render("schedule-booked")
 })
