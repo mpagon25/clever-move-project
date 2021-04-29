@@ -8,7 +8,7 @@ scheduleRouter.get('/schedule',(req, res, next)=>{
 
   AddressModel.findById(req.session.userInfo.address)
     .then((userAddress)=>{
-      res.render('schedule-form' , { userAddress , user: req.session.userInfo } )
+      res.render('schedule/schedule-form' , { userAddress , user: req.session.userInfo } )
     })
 
 })
@@ -50,7 +50,7 @@ scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
           
           .then((user)=>{
       
-            res.render('scheduleDetails', {schedule , user})
+            res.render('schedule/scheduleDetails', {schedule , user})
           })
         
 
@@ -73,7 +73,7 @@ scheduleRouter.get('/schedule/edit/:id', (req, res, next)=>{
            UserModel.findById(schedule.user._id)
            .populate("address")
             .then((user)=>{
-                res.render('schedule-edit.hbs', {schedule , user})
+                res.render('schedule/schedule-edit.hbs', {schedule , user})
            })
 
       }).catch((err) => {
@@ -114,7 +114,7 @@ scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
 
 //RENDER BOOKED PAGE
 scheduleRouter.get('/schedule/booked', (req, res, next)=>{
-  res.render("schedule-booked")
+  res.render("schedule/schedule-booked")
 })
 
 
