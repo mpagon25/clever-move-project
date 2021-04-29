@@ -1,12 +1,9 @@
-const userAuth = (req,res,next) => {
-
-    if(req.session.userInfo.role != 'user'){
-        res.redirect('/');
+const userAuth = (req, res, next) => {
+    if (req.session.userInfo.role != "user") {
         return;
-    }else{
+    } else {
         next();
-    }    
+    }
 };
-
 
 module.exports = userAuth;

@@ -13,6 +13,12 @@ const express = require("express");
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
 hbs.registerPartials('./views/partials');
+hbs.registerHelper('isdefined',(value)=>{
+    return value == 'declined' || value == 'accepted' ? true : false;
+});
+hbs.registerHelper('isAdmin',(value)=>{
+    return value == 'admin';
+});
 
 const app = express();
 

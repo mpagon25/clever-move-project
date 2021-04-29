@@ -14,7 +14,8 @@ const UserSchema = new Schema({
   address: {
       type: Schema.Types.ObjectId,
       ref: 'Address'
-  }
+  },
+  role: String
 });
 
 const User = model("User", UserSchema);

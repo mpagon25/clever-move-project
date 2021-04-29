@@ -1,35 +1,130 @@
-<div class="d-flex flex-column p-3 text-white bg-dark" style="width: 280px; height: 100%;">
-  <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-    <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-    <span class="fs-4">Admin-Name</span>
-  </a>
-  <hr>
-  <ul class="nav nav-pills flex-column mb-auto">
-    <li class="nav-item">
-      <a href="#" class="nav-link text-white active">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-        Schedules
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-        Administration
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-        Settings
-      </a>
-    </li>
-    <li>
-      <a href="#" class="nav-link text-white">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-        Customers
-      </a>
-    </li>
-  </ul>
-  <hr>
-  </div>
+<div class="dashboardWrapper d-flex" style="height: 100%">
+    <div class="d-flex flex-column p-3 text-white" style="width: 280px; height: 100%; background-color: #1D3561;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">{{user.firstname}}</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    Schedules
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#table"></use>
+                    </svg>
+                    Administration
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#grid"></use>
+                    </svg>
+                    Settings
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link text-white">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    Customers
+                </a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+    <div class="scheduleWrapper container d-flex flex-column align-items-center" style="width: 100%; height: 100%;">
+
+        <br>
+        <h1>Pending Schedules</h1>
+        {{#each popSchedules}}
+        <div class="accordion accordion-flush row justify-content-md-center" id="scheduleAccordion" style="width:100%">
+
+            <div class="accordion-item col-lg-8">
+                <h2 class="accordion-header" id="flush-heading-{{this._id}}">
+                    <button class="accordion-button collapsed text-white" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#flush-collapse-{{this._id}}" style="background-color: #1D3561" aria-expanded="false"
+                        aria-controls="flush-collapse-{{this._id}}">
+                        <div class="d-flex flex-row justify-content-between" style="width: 350px">
+                            <div>
+                                <h5> Schedule: {{this.user.firstname}} </h5>
+                            </div>
+                            <div>
+                                <h5>{{this.status}}</h5>
+                            </div>
+
+
+                        </div>
+
+                    </button>
+                </h2>
+                <div id="flush-collapse-{{this._id}}" class="accordion-collapse collapse"
+                    aria-labelledby="flush-heading-{{this._id}}" data-bs-parent="#scheduleAccordion">
+                    <div class="accordion-body card">
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Move date:</h5>
+                            <p class="card-text">{{this.date}}</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex flex-row justify-content-around">
+                            <div>
+                                <p>
+                                <h5>Moving From:</h5>
+                                </p>
+                                <p class="card-text">Street: {{this.user.address.street}}</p>
+                                <p class="card-text">House No. : {{this.user.address.houseNum}}</p>
+                                <p class="card-text">Zip code: {{this.user.address.zipCode}}</p>
+                            </div>
+
+                            <div>
+                                <p>
+                                <h5>Moving To:</h5>
+                                </p>
+                                <p class="card-text">Street: {{this.addressTo.street}}</p>
+                                <p class="card-text">House No.: {{this.addressTo.houseNum}}</p>
+                                <p class="card-text">Zip code: {{this.addressTo.zipCode}}</p>
+                            </div>
+
+                        </div>
+                        <hr>
+                        <div class="d-flex flex-column align-items-center">
+                            <h5>Description:</h5>
+                            <br>
+                            <p class="card-text">{{this.description}}</p>
+
+                        </div>
+                        <hr>
+                        {{#if (isdefined this.status)}}
+
+                        {{else}}
+                        <div class="d-flex flex-row justify-content-around">
+                            <form action="/admin/declined/{{this._id}}" method="POST">
+                                <button type="sumbit" class="btn btn-danger">Decline</button>
+                            </form>
+                            <form action="/admin/accepted/{{this._id}}" method="POST">
+                                <button type="submit" class="btn btn-success">Accept</button>
+                            </form>
+
+                        </div>
+
+                        {{/if}}
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+    </div>
 </div>
