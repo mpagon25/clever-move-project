@@ -16,7 +16,7 @@ scheduleRouter.get('/schedule',(req, res, next)=>{
 
 //CREATE-POST
 scheduleRouter.post('/schedule',(req, res, next)=>{
-  const {  street, houseNum, zipCode ,city , date, description } = req.body
+  const {  street, houseNum, zipCode ,city , date, description } = req.body;
   AddressModel.create({  street, houseNum, zipCode ,city })
 
       .then((address)=>{

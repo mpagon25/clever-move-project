@@ -16,6 +16,9 @@ hbs.registerPartials('./views/partials');
 hbs.registerHelper('isdefined',(value)=>{
     return value == 'declined' || value == 'accepted' ? true : false;
 });
+hbs.registerHelper('isAdmin',(value)=>{
+    return value == 'admin';
+});
 
 const app = express();
 

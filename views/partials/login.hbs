@@ -1,39 +1,40 @@
- <span data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fas fa-user"></i></span>
+<button class="btn btn-outline-light text-white" data-bs-toggle="modal" data-bs-target="#loginModal">Login</i></button>
 
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="loginModalLabel">Login</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body d-flex justify-content-center">
-        <form action="/login" method="POST">
-          <div class="mb-3">
-           <label for="email" class="col-form-label">Email:</label><br>
-           <input type="email"  class="form-control" id="email" name="email" placeholder="example@test.com">
-          </div>
-          <div class="mb-3">
-              <label for="password" class="col-form-label">Password:</label><br>
-           <input type="password"  class="form-control" id="password" name="password" placeholder="Password">
-     
-          </div>
-          <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Login</button>
-              </div>   
-        </form>
-      </div>
-      <div class="modal-footer d-flex justify-content-center flex-column">
-          <div>
-              <p>Forgot your password? <a href="#">Click here</a></p>
-          </div>
-        
-        <form action="/signup" method="GET">
-            <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
-            
-   
-      </div>   
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                <form action="/login" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="col-form-label">Email:</label><br>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="example@test.com">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="col-form-label">Password:</label><br>
+                        <input type="password" class="form-control" id="password" name="password"
+                            placeholder="Password">
+
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer d-flex justify-content-center flex-column">
+                <div>
+                    <p>Forgot your password? <a href="#">Click here</a></p>
+                </div>
+
+                <form action="/signup" method="GET">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </form>
+
+
+            </div>
+        </div>
     </div>
-  </div>
 </div>
