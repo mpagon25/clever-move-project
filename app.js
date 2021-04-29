@@ -19,6 +19,9 @@ hbs.registerHelper('isdefined',(value)=>{
 hbs.registerHelper('isAdmin',(value)=>{
     return value == 'admin';
 });
+hbs.registerHelper('isUser',(value)=>{
+    return value == 'user';
+});
 
 const app = express();
 
