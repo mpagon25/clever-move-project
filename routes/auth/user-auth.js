@@ -1,9 +1,10 @@
 const userAuth = (req, res, next) => {
-    if (req.session.userInfo.role != "user") {
+    if (req.session.userInfo.role == "user") {
+        next();
         return;
     } else {
-        next();
+        res.redirect("/");
     }
 };
 
-module.exports = userAuth;
+module.exports = { userAuth };

@@ -1,9 +1,9 @@
 const adminDashAuth = (req, res, next) => {
-    if (req.session.userInfo.role != "admin") {
-        res.redirect("/");
+    if (req.session.userInfo.role == "admin") {
+        next();
         return;
     } else {
-        next();
+        res.redirect("/");
     }
 };
 

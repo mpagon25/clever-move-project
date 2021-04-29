@@ -105,21 +105,16 @@
                         </div>
                         <hr>
                         {{#if (isdefined this.status)}}
-
                         {{else}}
-                        <div class="d-flex flex-row justify-content-around">
-                            <form action="/admin/declined/{{this._id}}" method="POST">
-                                <button type="sumbit" class="btn btn-danger">Decline</button>
-                            </form>
-                            <form action="/admin/accepted/{{this._id}}" method="POST">
-                                <button type="submit" class="btn btn-success">Accept</button>
-                            </form>
-
-                        </div>
-
+                            <div class="d-flex flex-row justify-content-around">
+                                <form action="/admin/declined/{{this._id}}" method="POST">
+                                    <button type="sumbit" class="btn btn-danger">Decline</button>
+                                </form>
+                                <form action="/admin/accepted/{{this._id}}" method="POST">
+                                    <button type="submit" class="btn btn-success">Accept</button>
+                                </form>
+                            </div>
                         {{/if}}
-
-
                     </div>
                 </div>
             </div>
