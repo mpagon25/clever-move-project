@@ -1,10 +1,10 @@
 <div class="col-sm-9 col-md-6 w-100 d-flex justify-content-center mt-4">
   <div class="card text-center">
-    <div class="card-header bg-info">
+    <div class="card-header text-white" style="padding: 10px; background-color: #1D3561">
       Schedule Details
     </div>
     <div class="card-body ">
-      <h5 class="card-title">Please check the details before confirming</h5>
+      <h5 class="card-title" style="font-size:1.1em;">Please check the details before confirming</h5>
       <p class="card-text">Name: {{user.firstname}} {{user.lastname}} </p>
 
       <p class="card-text ">Move date: {{schedule.date}}</p>
@@ -24,7 +24,7 @@
         <form action="/schedule/edit/{{schedule.id}}" method="GET">
         <button type="submit" class="btn btn-info  btn-lg m-2">Edit</button>
       </form>
-      {{!-- <a href="#" class="btn btn-info">Edit</a> --}}
+   
       <form action="/schedule/booked" method="get">
         <button type="submit" id="schedule" class="btn btn-primary btn-lg m-2">confirm</button>
       </form>
