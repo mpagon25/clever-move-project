@@ -37,7 +37,10 @@ html, body{
     background-color: #4C99FD;
 }
 .button-bg-dark{
-    padding: 10px; background-color: #1D3561
+    padding: 10px; background-color: #1D3561;
+}
+.nav-bg-custom{
+    background-color: #1D3561 ;
 }
 .button-bg-dark:hover{
     background-color: #4C99FD;
@@ -57,6 +60,10 @@ html, body{
 
 .about-text {
   line-height: 2;
+}
+#scheduleButton{
+    border-width: 3px;
+  
 }
 
 
