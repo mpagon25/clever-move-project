@@ -30,11 +30,14 @@ html, body{
 #scheduleButton{
     border-radius: 40px;
  }
-.button-bg-light, .btn-outline-light:hover{
+.button-bg-light, .btn-outline-light:hover, .btn-outline-primary:hover{
     background-color: #4C99FD;
 }
 .button-bg-dark{
     padding: 10px; background-color: #1D3561
+}
+.button-bg-dark:hover{
+    background-color: #4C99FD;
 }
 .dashboardWrapper{
     height: 100%"
