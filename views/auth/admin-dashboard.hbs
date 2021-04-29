@@ -45,17 +45,27 @@
     </div>
     <div class="scheduleWrapper container d-flex flex-column align-items-center" style="width: 100%; height: 100%;">
 
-
-        <h2 class="text-white">Pending Schedules</h2>
+        <br>
+        <h1>Pending Schedules</h1>
         {{#each popSchedules}}
         <div class="accordion accordion-flush row justify-content-md-center" id="scheduleAccordion" style="width:100%">
-            
+
             <div class="accordion-item col-lg-8">
                 <h2 class="accordion-header" id="flush-heading-{{this._id}}">
-                    <button class="accordion-button collapsed bg-primary text-white" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#flush-collapse-{{this._id}}" aria-expanded="false"
+                    <button class="accordion-button collapsed bg-primary text-white" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#flush-collapse-{{this._id}}" aria-expanded="false"
                         aria-controls="flush-collapse-{{this._id}}">
-                        <h5> Schedule: {{this.user.firstname}} </h5>
+                        <div class="d-flex flex-row justify-content-between" style="width: 350px">
+                            <div>
+                                <h5> Schedule: {{this.user.firstname}} </h5>
+                            </div>
+                            <div>
+                                <h5>{{this.status}}</h5>
+                            </div>
+
+
+                        </div>
+
                     </button>
                 </h2>
                 <div id="flush-collapse-{{this._id}}" class="accordion-collapse collapse"
@@ -94,11 +104,26 @@
 
                         </div>
                         <hr>
+                        {{#if (isdefined this.status)}}
+
+                        {{else}}
+                        <div class="d-flex flex-row justify-content-around">
+                            <form action="/admin/declined/{{this._id}}" method="POST">
+                                <button type="sumbit" class="btn btn-danger">Decline</button>
+                            </form>
+                            <form action="/admin/accepted/{{this._id}}" method="POST">
+                                <button type="submit" class="btn btn-success">Accept</button>
+                            </form>
+
+                        </div>
+
+                        {{/if}}
+
 
                     </div>
                 </div>
             </div>
-            
+
         </div>
         {{/each}}
     </div>

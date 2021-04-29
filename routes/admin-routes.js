@@ -38,4 +38,24 @@ adminRoutes.get("/admin-dashboard", adminDashAuth, (req, res, next) => {
     
 });
 
+adminRoutes.post('/admin/:status/:id', (req,res,next)=>{
+    const {id, status} = req.params;
+
+    if(status == 'declined' || status == 'accepted'){
+        Schedule.findByIdAndUpdate(req.params.id, {status: req.params.status}, {new: true})
+            .populate('user')
+            .populate('addressTo')
+            .then((schedule)=>{
+                console.log(schedule);
+                res.redirect('/admin-dashboard');
+            
+            })
+            .catch((err)=>{
+                next(err);
+            });
+    }
+});
+
+
+
 module.exports = adminRoutes;
