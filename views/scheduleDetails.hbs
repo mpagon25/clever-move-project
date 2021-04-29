@@ -20,13 +20,15 @@
       <p class="card-text">Zip code: {{schedule.addressTo.zipCode}}</p>
 
       <p class="card-text">Description: {{schedule.description}}</p>
-      <form action="/schedule/edit/{{schedule.id}}" method="GET">
-        <button type="submit" class="btn btn-info  btn-lg ">Edit</button>
+      <div class="d-flex justify-content-center">
+        <form action="/schedule/edit/{{schedule.id}}" method="GET">
+        <button type="submit" class="btn btn-info  btn-lg m-2">Edit</button>
       </form>
       {{!-- <a href="#" class="btn btn-info">Edit</a> --}}
       <form action="/schedule/booked" method="get">
-        <button type="submit" id="schedule" class="btn btn-primary btn-lg ">confirm</button>
+        <button type="submit" id="schedule" class="btn btn-primary btn-lg m-2">confirm</button>
       </form>
+      </div>
 
     </div>
     
