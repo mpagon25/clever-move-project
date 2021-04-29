@@ -8,7 +8,7 @@ html, body{
     font-family: "Poppins", sans-serif;
 }
 
-h1, h2 ,h3 ,h4 ,h5 ,h6 {
+.heading-color{
     color:#1D3561;
 }
 .navbar{
@@ -51,7 +51,7 @@ h1, h2 ,h3 ,h4 ,h5 ,h6 {
     #scheduleButton{
        width:30%;
        height:80px;
-       font-size:2em;
+       font-size:1.6em;
        border-radius: 40px;
     }
   

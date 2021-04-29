@@ -19,6 +19,9 @@ hbs.registerHelper('isdefined',(value)=>{
 hbs.registerHelper('isAdmin',(value)=>{
     return value == 'admin';
 });
+hbs.registerHelper('isUser',(value)=>{
+    return value == 'user';
+});
 
 const app = express();
 
@@ -45,6 +48,13 @@ app.use(session({
         ttl: 24 * 60 * 60 * 1000//1day => seconds
     })
 }));
+
+// set global variable to check if user is logged in
+app.use((req, res, next)=>{
+//to convert to boolean using !!
+ req.app.locals.isLoggedIn = !!req.session.userInfo
+ next()
+})
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
