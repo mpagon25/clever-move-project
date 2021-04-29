@@ -30,11 +30,20 @@ html, body{
 #scheduleButton{
     border-radius: 40px;
  }
-
- #usericon {
-    position: absolute;
-    top:24px;
- }
+.button-bg-light, .btn-outline-light:hover{
+    background-color: #4C99FD;
+}
+.button-bg-dark{
+    padding: 10px; background-color: #1D3561
+}
+.dashboardWrapper{
+    height: 100%"
+}
+.dashboardWrapper .bg-custom {
+    width: 280px; 
+    height: 100%; 
+    background-color: #1D3561
+}
 
 
 
@@ -51,7 +60,7 @@ html, body{
     #scheduleButton{
        width:30%;
        height:80px;
-       font-size:2em;
+       font-size:1.6em;
        border-radius: 40px;
     }
   
@@ -129,25 +138,6 @@ html, body{
     padding: 0;
 }
 
-
-
-
-/*
-Extra small (xs) devices (portrait phones, less than 576px)
-No media query since this is the default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-*/
 
 
 
