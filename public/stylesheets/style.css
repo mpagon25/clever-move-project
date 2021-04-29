@@ -30,13 +30,20 @@ html, body{
 #scheduleButton{
     border-radius: 40px;
  }
-
- #usericon {
-    position: absolute;
-    top:24px;
- }
-
-
+.button-bg-light{
+    background-color: #4C99FD
+}
+.button-bg-dark{
+    padding: 10px; background-color: #1D3561
+}
+.dashboardWrapper{
+    height: 100%"
+}
+.dashboardWrapper .bg-custom {
+    width: 280px; 
+    height: 100%; 
+    background-color: #1D3561
+}
 
 /*---Media Queries --*/
 @media (min-width: 992px) { 
