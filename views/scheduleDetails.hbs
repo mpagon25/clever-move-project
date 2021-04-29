@@ -1,38 +1,36 @@
+<div class="col-sm-9 col-md-6 w-100 d-flex justify-content-center mt-4">
+  <div class="card text-center">
+    <div class="card-header text-white" style="padding: 10px; background-color: #1D3561">
+      Schedule Details
+    </div>
+    <div class="card-body ">
+      <h5 class="card-title" style="font-size:1.1em;">Please check the details before confirming</h5>
+      <p class="card-text">Name: {{user.firstname}} {{user.lastname}} </p>
 
-    <div class="col-sm-9 col-md-6 w-100 d-flex justify-content-center">
-   <div class="card text-center">
-  <div class="card-header">
-   Schedule Details
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Please check the details before confirming</h5>
-    <p class="card-text">Name: {{user.firstname}} {{user.lastname}} </p>
- 
-    <p class="card-text ">Move date: {{schedule.date}}</p>
+      <p class="card-text ">Move date: {{schedule.date}}</p>
 
-    <p> <b>Moving From:</b> </p>
-    <p class="card-text">Street: {{user.address.street}}</p>
-    <p class="card-text">House No. : {{user.address.houseNum}}</p>
-    <p class="card-text">Zip code: {{user.address.zipCode}}</p>
+      <p> <b>Moving From:</b> </p>
+      <p class="card-text">Street: {{user.address.street}}</p>
+      <p class="card-text">House No. : {{user.address.houseNum}}</p>
+      <p class="card-text">Zip code: {{user.address.zipCode}}</p>
 
-    <p> <b>Moving To:</b> </p>
-    <p class="card-text">Street: {{schedule.addressTo.street}}</p>
-    <p class="card-text">House No.: {{schedule.addressTo.houseNum}}</p>
-    <p class="card-text">Zip code: {{schedule.addressTo.zipCode}}</p>
+      <p> <b>Moving To:</b> </p>
+      <p class="card-text">Street: {{schedule.addressTo.street}}</p>
+      <p class="card-text">House No.: {{schedule.addressTo.houseNum}}</p>
+      <p class="card-text">Zip code: {{schedule.addressTo.zipCode}}</p>
+
+      <p class="card-text">Description: {{schedule.description}}</p>
+      <div class="d-flex justify-content-center">
+        <form action="/schedule/edit/{{schedule.id}}" method="GET">
+        <button type="submit" class="btn btn-info  btn-lg m-2">Edit</button>
+      </form>
    
-    <p class="card-text">Description: {{schedule.description}}</p>
-    <form action="/schedule/edit/{{schedule.id}}" method="GET">
-         <button type="submit" class="btn btn-info">Edit</button>
-    </form>
-      {{!-- <a href="#" class="btn btn-info">Edit</a> --}}
-               <form action="/schedule/booked" method="get">
-                    <button type="submit" id="schedule" class="btn btn-primary btn-lg">confirm</button>
-                </form>
-   
-  </div>
-  <div class="card-footer text-muted">
-    2 days ago
+      <form action="/schedule/booked" method="get">
+        <button type="submit" id="schedule" class="btn btn-primary btn-lg m-2">confirm</button>
+      </form>
+      </div>
+
+    </div>
+    
   </div>
 </div>
-    </div>
-

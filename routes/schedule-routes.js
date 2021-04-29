@@ -17,6 +17,7 @@ scheduleRouter.get('/schedule',(req, res, next)=>{
 //CREATE-POST
 scheduleRouter.post('/schedule',(req, res, next)=>{
   const {  street, houseNum, zipCode ,city , date, description } = req.body;
+
   AddressModel.create({  street, houseNum, zipCode ,city })
 
       .then((address)=>{
@@ -58,7 +59,7 @@ scheduleRouter.get('/schedule/details/:id', (req, res, next)=>{
      });
 
 }) 
-
+ 
 
 //GET EDIT
 scheduleRouter.get('/schedule/edit/:id', (req, res, next)=>{
@@ -97,7 +98,7 @@ scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
       AddressModel.findByIdAndUpdate(schedule.addressTo, {streetTo, houseNumTo, zipCodeTo ,cityTo},{new:true})
   
          .then(()=>{
-      
+       console.log(zipCodeTo)
             //  res.redirect(`/schedule/details/${id}`)
 
              res.redirect(`/schedule/booked`)
