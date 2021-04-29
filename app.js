@@ -49,11 +49,12 @@ app.use(session({
     })
 }));
 
-//set global variable to check if user is logged in
-// app.use((req, res, next)=>{
-// //to convert to boolean
-//  req.app.locals.isLoggedIn = !!req.session.userInfo
-// })
+// set global variable to check if user is logged in
+app.use((req, res, next)=>{
+//to convert to boolean using !!
+ req.app.locals.isLoggedIn = !!req.session.userInfo
+ next()
+})
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
