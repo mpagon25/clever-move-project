@@ -13,6 +13,7 @@ const scheduleSchema = new Schema({
     },
     date: Date,
     description: String,
+    status: String
 });
 
 const Schedule = model("user-schedule", scheduleSchema);
