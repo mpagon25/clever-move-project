@@ -97,7 +97,7 @@ scheduleRouter.post('/schedule/edit/:id', (req, res, next)=>{
       AddressModel.findByIdAndUpdate(schedule.addressTo, {streetTo, houseNumTo, zipCodeTo ,cityTo},{new:true})
   
          .then(()=>{
-      
+       console.log(zipCodeTo)
             //  res.redirect(`/schedule/details/${id}`)
 
              res.redirect(`/schedule/booked`)
