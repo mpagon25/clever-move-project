@@ -22,11 +22,11 @@
       <p class="card-text">Description: {{schedule.description}}</p>
       <div class="d-flex justify-content-center">
         <form action="/schedule/edit/{{schedule.id}}" method="GET">
-        <button type="submit" class="btn btn-info  btn-lg m-2">Edit</button>
+        <button type="submit" class="btn btn-outline-primary btn-lg heading-color m-2" >Edit</button>
       </form>
-   
+  
       <form action="/schedule/booked" method="get">
-        <button type="submit" id="schedule" class="btn btn-primary btn-lg m-2">confirm</button>
+        <button type="submit" id="schedule" class="btn m-2 btn-outline-primary button-bg-dark text-light ">Confirm</button>
       </form>
       </div>
 

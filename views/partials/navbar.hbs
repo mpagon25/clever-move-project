@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-xxl navbar-light" style="padding: 10px; background-color: #1D3561">
+<nav class="navbar navbar-expand-xxl navbar-light nav-bg-custom" >
     <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="images/logo.png" alt="Logo" width="80px"></a>
+        <a class="navbar-brand" href="/"><img src="/images/logo.png" alt="Logo" width="80px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
             </ul>
             {{#if userInfo}}
                 <form action="/logout" method="POST" class="d-flex">
-                    <button type="submit" class="btn btn-outline-light text-light">Logout</button>
+                    <button type="submit" class="btn btn-outline-light text-light ">Logout</button>
                 </form>
                 <form action="/profilepage" method="GET" class="d-flex">
                     <button type="submit" class="btn btn-outline-light text-light">{{userInfo.firstname}}</button>
