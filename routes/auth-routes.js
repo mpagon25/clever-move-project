@@ -63,6 +63,7 @@ authRouter.post('/login', (req, res, next) => {
                     .then((isMatching) => {
                         if (isMatching) {
                             req.session.userInfo = user;
+                            req.app.locals.loggedUser = req.session.userInfo;
                             req.app.locals.isUserLoggedIn = true;
                             res.redirect("/");
                         } else {
@@ -74,7 +75,7 @@ authRouter.post('/login', (req, res, next) => {
                         next(err);
                     });
             }else{
-                res.render('/', {loginMsg: 'Incorrect username or password.'})
+                res.render('index', {loginMsg: 'Incorrect username or password.'})
             }
         })
         .catch((err) => {

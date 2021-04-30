@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xxl navbar-light nav-bg-custom" >
+<nav class="navbar navbar-expand-xxl navbar-light nav-bg-custom">
     <div class="container-fluid">
         <a class="navbar-brand" href="/"><img src="/images/logo.png" alt="Logo" width="80px"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -18,34 +18,43 @@
                     <a class="nav-link text-white" href="#services">Our Services</a>
 
                 </li>
-                
+
                 <li class="nav-item">
-                    <a class="nav-link text-white" {{#if isUserLoggedIn}}href="/schedule"{{else}}data-bs-toggle="modal" data-bs-target="#loginModal"{{/if}}href='/'>Book Schedule</a>
+                    <a class="nav-link text-white" {{#if isUserLoggedIn}}href="/schedule" {{else}}data-bs-toggle="modal"
+                        data-bs-target="#loginModal" {{/if}}href='/'>Book Schedule</a>
                 </li>
 
-                {{#if (isAdmin userInfo.role)}}
+                {{#if (isAdmin loggedUser.role)}}
                 <li class="nav-item"></li>
                 <a class="nav-link text-white" href="/admin-dashboard">Admin-Dashboard</a>
                 </li>
                 {{/if}}
             </ul>
-            {{#if isUserLoggedIn}}
+
+
+            <div class="d-flex justify-content-between align-items-center" style="width: 200px; padding:0;">
+                {{#if isUserLoggedIn}}
                 <form action="/logout" method="POST" class="d-flex">
-                    <button type="submit" class="btn btn-outline-light text-light ">Logout</button>
+                    <button type="submit" class="btn btn-outline-light text-light">Logout</button>
                 </form>
-                <form action="/profilepage" method="GET" class="d-flex">
-                    <button type="submit" class="btn btn-outline-light text-light">{{userInfo.firstname}}</button>
-                </form>
-                
-            {{else}}
+                <a class="text-light nav-link" style="padding:0" href="/profilepage">
+                    <h4>{{loggedUser.firstname}}</h4>
+                </a>
+                {{else}}
                 <div class="d-flex">
                     {{> login}}
                 </div>
+
                 <form action="/signup" method="GET" class="d-flex">
                     <button type="submit" class="btn btn-light">Sign Up</button>
                 </form>
+                {{/if}}
 
-            {{/if}}
+            </div>
+
+
+
+
 
 
 
