@@ -6,10 +6,6 @@ const bcrypt = require('bcryptjs');
 const Schedule = require("../models/Schedule.model");
 const { populate } = require("../models/Address.model");
 
-userRoutes.get("/profilepage",userAuth, (req, res, next) => {
-    res.render("auth/user-profilepage");
-});
-
 userRoutes.get("/profilepage/settings",userAuth,(req,res,next)=>{
     res.render("auth/user-settings");
 });
