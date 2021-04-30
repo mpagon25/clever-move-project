@@ -1,35 +1,3 @@
-
-{{#if isLoggedIn}}
-<form action="/schedule" method="GET">
-  <button type="submit" id="scheduleButton" data-bs-toggle="modal" data-bs-target="#loginModal"
-    class=" btn btn-outline-light btn-lg position-absolute top-50 start-50 translate-middle mt-4">
-    Book A Schedule
-  </button>
-</form>
-
-{{else}}
-<button type="submit" id="scheduleButton" data-bs-toggle="modal" data-bs-target="#scheduleModal"
-  class=" btn btn-outline-light btn-lg position-absolute top-50 start-50 translate-middle mt-4">
-  Book A Schedule
-</button>
-
-<div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title heading-color" id="exampleModalLabel">Hey there!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <h5 class="heading-color">Please login or signup first</h5>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-{{/if}}
-
-
+<a class="btn btn-outline-light btn-lg d-flex flex-column justify-content-center position-absolute top-50 start-50 translate-middle mt-4"
+    type="button" id="scheduleButton" {{#if isUserLoggedIn}}href="/schedule" {{else}}data-bs-toggle="modal"
+    data-bs-target="#loginModal" {{/if}}href='/'>Book Schedule</a>

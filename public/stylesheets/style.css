@@ -6,6 +6,7 @@ html, body{
     width: 100%;
     color:#222;
     font-family: "Poppins", sans-serif;
+    background: #e9f2ff;
 }
 
 .heading-color{
@@ -153,6 +154,27 @@ html, body{
     padding: 0;
 }
 
+.button-bg-dark:hover {
+    background-color: #1D3561;
+}
+.accordion-button:not(.collapsed) {
+    color: #FFFFFF;
+    background-color: #1D3561;
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
 
+.scheduleItemBody, .sidebarAdmin {
+    background-color: #4c526b;
+    color: #FFFFFF;
+
+}
+
+.dashboardWrapper {
+    background-color: #e9f2ff;
+}
+
+.scheduleWrapper > h1 {
+    color: #4c526b;
+}
 
 

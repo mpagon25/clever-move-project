@@ -4,37 +4,6 @@ const bcrypt = require('bcryptjs');
 
 const authRouter = require('express').Router();
 
-authRouter.post('/login',(req, res, next)=>{
-    
-    User.findOne({email: req.body.email})
-        .then((user)=>{
-            if(user){
-                console.log('>>> USER EXISTS');
-                bcrypt.compare(req.body.password, user.password)
-                    .then((isMatching)=>{
-                        if(isMatching){
-                            req.session.userInfo = user;
-                            req.app.locals.isUserLoggedIn = true;
-                            res.redirect('/');
-                        }
-                        else {
-                            res.redirect('/');
-                            console.error('Login failed');
-                        }
-
-                    })
-                    .catch((err)=>{
-                        next(err);
-                    });
-            }
-
-        })
-        .catch((err)=>{
-            next(err);
-        });
-    
-});
-
 authRouter.get('/signup',(req,res,next)=>{
     res.render('signup')
 });
@@ -67,9 +36,6 @@ authRouter.post('/signup',(req,res,next)=>{
     const salt = bcrypt.genSaltSync(12);
     const hash = bcrypt.hashSync(password, salt);
 
-
-
-
     AddressModel.create(address)
         .then((newAddress)=>{
             return User.create({email, password: hash, firstname, lastname, address: newAddress._id, role: 'user'});                
@@ -83,6 +49,45 @@ authRouter.post('/signup',(req,res,next)=>{
 
 
 });
+
+authRouter.post('/login', (req, res, next) => {
+    User.findOne({ email: req.body.email })
+        .populate('address')
+        .then((user) => {
+            if (user) {
+                console.log(">>> USER EXISTS");
+                bcrypt
+                    .compare(req.body.password, user.password)
+                    .then((isMatching) => {
+                        if (isMatching) {
+                            req.session.userInfo = user;
+                            req.app.locals.loggedUser = req.session.userInfo;
+                            req.app.locals.isUserLoggedIn = true;
+                            res.redirect("/");
+                        } else {
+                            res.redirect("/");
+                            console.error("Login failed");
+                        }
+                    })
+                    .catch((err) => {
+                        next(err);
+                    });
+            }else{
+                res.render('index', {loginMsg: 'Incorrect username or password.'})
+            }
+        })
+        .catch((err) => {
+            next(err);
+        });
+});
+
+authRouter.post('/logout',(req, res, next)=>{
+    req.app.locals.isUserLoggedIn = false;
+    req.session.destroy();
+    res.redirect('/');
+});
+
+
 
 
 module.exports = authRouter;

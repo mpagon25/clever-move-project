@@ -1,8 +1,10 @@
+{{#if msg}}
+<div class="bg-danger text-white d-flex justify-content-center flow">
+    <h3>{{msg}}</h3>
+</div>
+{{/if}}
 <div class="container d-flex justify-content-center flow-column">
-    {{#if msg}}
-        <div class="error">{{msg}}</div>
-    {{/if}}
-    <form class="w-50" action="/signup" method="POST" >
+    <form class="w-50" action="/signup" method="POST">
         <br>
         <h4>Sign Up</h4><br>
         <div class="form-group">
@@ -24,14 +26,18 @@
         <div class="form-group">
             <label for="lastname">Lastname</label>
             <input type="lastname" class="form-control" name="lastname" placeholder="Lastname">
-        </div><br>    
-        <div class="form-group">
-            <label for="street">Street</label>
-            <input type="text" class="form-control" name="street" placeholder="Street">
         </div><br>
-        <div class="form-group">
-            <label for="houseNum">House Number</label>
-            <input type="number" class="form-control error" name="houseNum" placeholder="House Number">
+        <div class="form-group d-flex container-fluid " style="padding: 0;">
+            <div class="form-group col-lg-9" style="padding: 0;">
+                <label for="street">Street</label>
+                <input type="text" class="form-control" name="street" placeholder="Street">
+            </div>
+            <div class="form-group col-lg-3" style="padding: 0;">
+                <label for="houseNum">House Number</label>
+                <input type="number" class="form-control error" name="houseNum" placeholder="House Number">
+            </div>
+            
+
         </div><br>
         <div class="form-group">
             <label for="zipCode">Zip Code</label>
@@ -41,7 +47,8 @@
             <label for="city">City</label>
             <input type="text" class="form-control" name="city" placeholder="City">
         </div><br>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary col-lg-12" style="padding: 4px;"><h4>Submit</h4></button>
     </form>
-
 </div>
+<br>
+<br>
