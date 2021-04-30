@@ -1,0 +1,75 @@
+<div class="dashboardWrapper p-0 d-flex" style="height: 100%;">
+    <div class="sidebarAdmin p-0 col-lg-2 d-flex flex-column justify-content-center">
+        <div class="d-flex justify-content-center" style="padding-top: 2rem;">
+            <h3>{{loggedUser.firstname}}</h1>
+
+        </div>
+        <hr>
+        <ul class="nav nav-pills d-flex flex-column mb-auto">
+            <li class="nav-item">
+                <a href="/profilepage/schedule" class="nav-link text-white text-center">
+                    Schedules
+                </a>
+            </li>
+            <li>
+                <a href="/profilepage/settings" class="nav-link text-white text-center active">
+                    Settings
+                </a>
+            </li>
+        </ul>
+        <hr>
+    </div>
+    <div class="container d-flex justify-content-center flow-column">
+        <form class="w-50" action="/profilepage/settings/{{loggedUser.id}}" method="POST">
+            <br>
+            <h4>Your Settings</h4><br>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" value="{{loggedUser.email}}" placeholder="Enter email">
+            </div><br>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div><br>
+            <div class="form-group">
+                <label for="confirmPW">Confirm Password</label>
+                <input type="password" class="form-control" name="confirmPW" placeholder="Confirm Password">
+            </div><br>
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="firstname" class="form-control" name="firstname" value="{{loggedUser.firstname}}" placeholder="Firstname">
+            </div><br>
+            <div class="form-group">
+                <label for="lastname">Lastname</label>
+                <input type="lastname" class="form-control" name="lastname" value="{{loggedUser.lastname}}" placeholder="Lastname">
+            </div><br>
+            <div class="form-group d-flex container-fluid " style="padding: 0;">
+                <div class="form-group col-lg-9" style="padding: 0;">
+                    <label for="street">Street</label>
+                    <input type="text" class="form-control" name="street" value="{{loggedUser.address.street}}" placeholder="Street">
+                </div>
+                <div class="form-group col-lg-3" style="padding: 0;">
+                    <label for="houseNum">House Number</label>
+                    <input type="number" class="form-control error" name="houseNum" value="{{loggedUser.address.houseNum}}" placeholder="House Number">
+                </div>
+
+
+                </div><br>
+                <div class="form-group">
+                    <label for="zipCode">Zip Code</label>
+                    <input type="number" class="form-control" name="zipCode" value="{{loggedUser.address.zipCode}}" placeholder="Zip Code">
+                </div><br>
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" name="city" value="{{loggedUser.address.city}}" placeholder="City">
+                </div><br>
+                <button type="submit" class="btn btn-primary col-lg-12" style="padding: 4px;">
+                    <h4>Submit</h4>
+                </button>
+            </form>
+        </div>
+        <br>
+        <br>
+    </div>
+
+</div>

@@ -1,57 +1,42 @@
-<div class="dashboardWrapper d-flex">
-    <div class="d-flex flex-column p-3 text-white bg-custom">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <use xlink:href="#bootstrap"></use>
-            </svg>
-            <span class="fs-4">{{user.firstname}}</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+<div class="dashboardWrapper p-0 d-flex container-fluid" style="height: 100%;">
+    <div class="sidebarAdmin p-0 col-lg-2 d-flex flex-column justify-content-center">
+        <div class="d-flex justify-content-center" style="padding-top: 2rem;">
+            <h3>{{user.firstname}}</h1>
+            
+        </div>
+        <hr>        
+        <ul class="nav nav-pills d-flex flex-column mb-auto">
             <li class="nav-item">
-                <a href="#" class="nav-link text-white active">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#home"></use>
-                    </svg>
+                <a href="#" class="nav-link text-white text-center active">         
                     Schedules
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#table"></use>
-                    </svg>
+                <a href="#" class="nav-link text-white text-center">  
                     Administration
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#grid"></use>
-                    </svg>
+                <a href="#" class="nav-link text-white text-center">
                     Settings
                 </a>
             </li>
             <li>
-                <a href="#" class="nav-link text-white">
-                    <svg class="bi me-2" width="16" height="16">
-                        <use xlink:href="#people-circle"></use>
-                    </svg>
+                <a href="#" class="nav-link text-white text-center">
                     Customers
                 </a>
             </li>
         </ul>
         <hr>
     </div>
-    <div class="scheduleWrapper container d-flex flex-column align-items-center" style="width: 100%; height: 100%;">
-
+    <div class="scheduleWrapper container d-flex flex-column align-items-center p-0" style="width: 100%; height: 100%;">
         <br>
         <h1>Pending Schedules</h1>
-        {{#each popSchedules}}
+        <hr>
         <div class="accordion accordion-flush row justify-content-md-center" id="scheduleAccordion" style="width:100%">
-
-            <div class="accordion-item col-lg-8">
-                <h2 class="accordion-header" id="flush-heading-{{this._id}}">
+        {{#each popSchedules}}
+            <div class="accordion-item col-lg-8" style="padding: 0">
+                <h2 class="accordion-header card" id="flush-heading-{{this._id}}">
                     <button class="accordion-button collapsed text-white button-bg-dark" type="button"
                         data-bs-toggle="collapse" data-bs-target="#flush-collapse-{{this._id}}" aria-expanded="false"
                         aria-controls="flush-collapse-{{this._id}}">
@@ -70,7 +55,7 @@
                 </h2>
                 <div id="flush-collapse-{{this._id}}" class="accordion-collapse collapse"
                     aria-labelledby="flush-heading-{{this._id}}" data-bs-parent="#scheduleAccordion">
-                    <div class="accordion-body card">
+                    <div class="scheduleItemBody accordion-body card">
                         <div class="d-flex flex-column align-items-center">
                             <h5>Move date:</h5>
                             <p class="card-text">{{this.date}}</p>
@@ -118,8 +103,8 @@
                     </div>
                 </div>
             </div>
-
-        </div>
         {{/each}}
+        </div>
+
     </div>
 </div>

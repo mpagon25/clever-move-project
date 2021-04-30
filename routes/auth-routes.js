@@ -36,9 +36,6 @@ authRouter.post('/signup',(req,res,next)=>{
     const salt = bcrypt.genSaltSync(12);
     const hash = bcrypt.hashSync(password, salt);
 
-
-
-
     AddressModel.create(address)
         .then((newAddress)=>{
             return User.create({email, password: hash, firstname, lastname, address: newAddress._id, role: 'user'});                
@@ -55,6 +52,7 @@ authRouter.post('/signup',(req,res,next)=>{
 
 authRouter.post('/login', (req, res, next) => {
     User.findOne({ email: req.body.email })
+        .populate('address')
         .then((user) => {
             if (user) {
                 console.log(">>> USER EXISTS");
