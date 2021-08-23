@@ -1,19 +1,19 @@
 const { Schema, model } = require("mongoose");
 require("./Address.model");
-require('./User.model');
+require("./User.model");
 
 const scheduleSchema = new Schema({
-    user : {
+    user: {
         type: Schema.Types.ObjectId,
-        ref: 'User'
+        ref: "User",
     },
     addressTo: {
         type: Schema.Types.ObjectId,
-        ref: 'Address',
+        ref: "Address",
     },
     date: Date,
     description: String,
-    status: String
+    status: String,
 });
 
 const Schedule = model("user-schedule", scheduleSchema);

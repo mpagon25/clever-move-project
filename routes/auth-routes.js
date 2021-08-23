@@ -1,58 +1,82 @@
-const AddressModel = require('../models/Address.model');
-const User = require('../models/User.model');
-const bcrypt = require('bcryptjs');
+const AddressModel = require("../models/Address.model");
+const User = require("../models/User.model");
+const bcrypt = require("bcryptjs");
 
-const authRouter = require('express').Router();
+const authRouter = require("express").Router();
 
-authRouter.get('/signup',(req,res,next)=>{
-    res.render('signup')
+authRouter.get("/signup", (req, res, next) => {
+    res.render("signup");
 });
- 
 
-authRouter.post('/signup',(req,res,next)=>{
-    const {email, password, confirmPW, firstname, lastname, street, houseNum, zipCode, city} = req.body;
+authRouter.post("/signup", (req, res, next) => {
+    const {
+        email,
+        password,
+        confirmPW,
+        firstname,
+        lastname,
+        street,
+        houseNum,
+        zipCode,
+        city,
+    } = req.body;
 
-    const address = {street, houseNum, zipCode, city};
+    const address = { street, houseNum, zipCode, city };
 
-
-    if(!email || !password || !confirmPW || !firstname || !lastname || !street || !houseNum || !zipCode || !city){
-        res.render("signup", {msg: 'Fill up every input field'});
+    if (
+        !email ||
+        !password ||
+        !confirmPW ||
+        !firstname ||
+        !lastname ||
+        !street ||
+        !houseNum ||
+        !zipCode ||
+        !city
+    ) {
+        res.render("signup", { msg: "Fill up every input field" });
         return;
     }
 
     const re = /^[^@ ]+@[^@ ]+\.[^@ ]+$/;
 
     if (!re.test(String(email).toLowerCase())) {
-        res.render("signup", {msg: 'Enter a valid email address.'});
+        res.render("signup", { msg: "Enter a valid email address." });
         return;
     }
 
     const pwRe = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if (!pwRe.test(password)) {
-        res.render("signup", {msg: 'Enter a valid password.'});
+        res.render("signup", { msg: "Enter a valid password." });
         return;
     }
     const salt = bcrypt.genSaltSync(12);
     const hash = bcrypt.hashSync(password, salt);
 
     AddressModel.create(address)
-        .then((newAddress)=>{
-            return User.create({email, password: hash, firstname, lastname, address: newAddress._id, role: 'user'});                
+        .then((newAddress) => {
+            return User.create({
+                email,
+                password: hash,
+                firstname,
+                lastname,
+                address: newAddress._id,
+                role: "user",
+            });
         })
-        .then((newUser)=>{
-            console.log('>>> Created User: ' + newUser._id);
-            res.redirect('/');
+        .then((newUser) => {
+            console.log(">>> Created User: " + newUser._id);
+            res.redirect("/");
         })
-        .catch((err)=>{next(err);});
-
-
-
+        .catch((err) => {
+            next(err);
+        });
 });
 
-authRouter.post('/login', (req, res, next) => {
+authRouter.post("/login", (req, res, next) => {
     User.findOne({ email: req.body.email })
-        .populate('address')
+        .populate("address")
         .then((user) => {
             if (user) {
                 console.log(">>> USER EXISTS");
@@ -72,8 +96,10 @@ authRouter.post('/login', (req, res, next) => {
                     .catch((err) => {
                         next(err);
                     });
-            }else{
-                res.render('index', {loginMsg: 'Incorrect username or password.'})
+            } else {
+                res.render("index", {
+                    loginMsg: "Incorrect username or password.",
+                });
             }
         })
         .catch((err) => {
@@ -81,13 +107,10 @@ authRouter.post('/login', (req, res, next) => {
         });
 });
 
-authRouter.post('/logout',(req, res, next)=>{
+authRouter.post("/logout", (req, res, next) => {
     req.app.locals.isUserLoggedIn = false;
     req.session.destroy();
-    res.redirect('/');
+    res.redirect("/");
 });
-
-
-
 
 module.exports = authRouter;

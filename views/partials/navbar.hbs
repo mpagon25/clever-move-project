@@ -37,7 +37,8 @@
                 <form action="/logout" method="POST" class="d-flex">
                     <button type="submit" class="btn btn-outline-light text-light">Logout</button>
                 </form>
-                <a class="text-light nav-link" style="padding:0" {{#if (isUser loggedUser.role)}}href="/profilepage/schedule"{{/if}}>
+                <a class="text-light nav-link" style="padding:0" {{#if (isUser
+                    loggedUser.role)}}href="/profilepage/schedule" {{/if}}>
                     <h4>{{loggedUser.firstname}}</h4>
                 </a>
                 {{else}}

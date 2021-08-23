@@ -17,8 +17,7 @@ scheduleRouter.get("/schedule", (req, res, next) => {
 scheduleRouter.post("/schedule", (req, res, next) => {
     const { street, houseNum, zipCode, city, date, description } = req.body;
 
-    AddressModel.create({ street, houseNum, zipCode, city })
-    .then((address) => {
+    AddressModel.create({ street, houseNum, zipCode, city }).then((address) => {
         Schedule.create({
             user: req.session.userInfo._id,
             addressTo: address._id,
@@ -81,14 +80,8 @@ scheduleRouter.get("/schedule/edit/:id", (req, res, next) => {
 // EDIT SCHEDULE
 scheduleRouter.post("/schedule/edit/:id", (req, res, next) => {
     const { id } = req.params;
-    const {
-        streetTo,
-        houseNumTo,
-        zipCodeTo,
-        cityTo,
-        date,
-        description,
-    } = req.body;
+    const { streetTo, houseNumTo, zipCodeTo, cityTo, date, description } =
+        req.body;
     console.log("test");
     console.log(streetTo, houseNumTo, zipCodeTo, cityTo);
 
@@ -99,8 +92,7 @@ scheduleRouter.post("/schedule/edit/:id", (req, res, next) => {
                 schedule.addressTo,
                 { streetTo, houseNumTo, zipCodeTo, cityTo },
                 { new: true }
-            )
-            .then(() => {
+            ).then(() => {
                 console.log(zipCodeTo);
                 //  res.redirect(`/schedule/details/${id}`)
 

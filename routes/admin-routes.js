@@ -5,57 +5,53 @@ const { adminDashAuth } = require("./auth/admin-auth");
 
 adminRoutes.get("/admin-dashboard", adminDashAuth, (req, res, next) => {
     Schedule.find()
-        .populate('user')
-        .populate('addressTo')
-        .then((schedules)=>{
+        .populate("user")
+        .populate("addressTo")
+        .then((schedules) => {
             User.find()
-                .populate('address')
-                .then((users)=>{
+                .populate("address")
+                .then((users) => {
                     let popSchedules = [];
-                    schedules.forEach((schedule)=>{
-                        users.forEach((user)=>{
-                            if(schedule.user._id == user.id){
-                                                             
+                    schedules.forEach((schedule) => {
+                        users.forEach((user) => {
+                            if (schedule.user._id == user.id) {
                                 // console.log({addressNew: user.address})
                                 schedule.user.address = user.address;
                                 popSchedules.push(schedule);
-                                
                             }
-
                         });
-                        
-                                   
                     });
-                    
-                    
-                    res.render("auth/admin-dashboard", {user: req.session.userInfo, popSchedules});
-                });          
-            
+
+                    res.render("auth/admin-dashboard", {
+                        user: req.session.userInfo,
+                        popSchedules,
+                    });
+                });
         })
-        .catch((err)=>{
+        .catch((err) => {
             next(err);
         });
-    
 });
 
-adminRoutes.post('/admin/:status/:id', (req,res,next)=>{
-    const {id, status} = req.params;
+adminRoutes.post("/admin/:status/:id", (req, res, next) => {
+    const { id, status } = req.params;
 
-    if(status == 'declined' || status == 'accepted'){
-        Schedule.findByIdAndUpdate(req.params.id, {status: req.params.status}, {new: true})
-            .populate('user')
-            .populate('addressTo')
-            .then((schedule)=>{
+    if (status == "declined" || status == "accepted") {
+        Schedule.findByIdAndUpdate(
+            req.params.id,
+            { status: req.params.status },
+            { new: true }
+        )
+            .populate("user")
+            .populate("addressTo")
+            .then((schedule) => {
                 console.log(schedule);
-                res.redirect('/admin-dashboard');
-            
+                res.redirect("/admin-dashboard");
             })
-            .catch((err)=>{
+            .catch((err) => {
                 next(err);
             });
     }
 });
-
-
 
 module.exports = adminRoutes;

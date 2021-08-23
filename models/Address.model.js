@@ -1,12 +1,12 @@
-const {Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const AddressSchema = new Schema ({
+const AddressSchema = new Schema({
     street: String,
     houseNum: Number,
     zipCode: Number,
     city: String,
 });
 
-const AddressModel = model('Address', AddressSchema);
+const AddressModel = model("Address", AddressSchema);
 
 module.exports = AddressModel;
